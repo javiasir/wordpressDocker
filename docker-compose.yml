@@ -1,0 +1,29 @@
+---
+    version: '3.7'
+    services:
+      e-motion.pontgrup.com:
+        image: wordpress
+        name: example.com
+        restart: always
+        ports:
+          - $EXTERNAL_PORT:$INTERNAL_PORT
+        environment:
+          WORDPRESS_DB_HOST: db_e-motion
+          WORDPRESS_DB_USER: $DB_USER
+          WORDPRESS_DB_PASSWORD: $DB_PASS
+          WORDPRESS_DB_NAME: $DB_NAME
+        volumes:
+          - ./wordpress:/var/www/html
+          - ./plugins:/var/www/html/wp-content/plugins
+
+      db_e-motion:
+        image: mysql:5.7
+        name: db_example.com
+        restart: always
+        environment:
+          MYSQL_DATABASE: $DB_NAME
+          MYSQL_USER: $DB_USER
+          MYSQL_PASSWORD: $DB_PASS
+          MYSQL_ROOT_PASSWORD: $DB_PASS_ROOT
+        volumes:
+          - ./db:/var/lib/mysql
