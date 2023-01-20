@@ -3,7 +3,7 @@
     services:
       wordpress.com:
         image: wordpress
-        name: example.com
+        container_name: example.com
         restart: always
         ports:
           - $EXTERNAL_PORT:$INTERNAL_PORT
@@ -18,7 +18,7 @@
 
       db_wordpress:
         image: mysql:5.7
-        name: db_example.com
+        containet_name: db_example.com
         restart: always
         environment:
           MYSQL_DATABASE: $DB_NAME
