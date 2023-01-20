@@ -1,7 +1,7 @@
 ---
     version: '3.7'
     services:
-      e-motion.pontgrup.com:
+      wordpress.com:
         image: wordpress
         name: example.com
         restart: always
@@ -16,7 +16,7 @@
           - ./wordpress:/var/www/html
           - ./plugins:/var/www/html/wp-content/plugins
 
-      db_e-motion:
+      db_wordpress:
         image: mysql:5.7
         name: db_example.com
         restart: always
