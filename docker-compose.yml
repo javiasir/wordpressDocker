@@ -18,7 +18,7 @@
 
       db_wordpress:
         image: mysql:5.7
-        containet_name: db_example.com
+        container_name: db_example.com
         restart: always
         environment:
           MYSQL_DATABASE: $DB_NAME
